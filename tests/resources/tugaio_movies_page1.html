@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-pt">
+<title>tuga.io - Filmes</title>
+<meta charset="utf-8">
+<meta name="title" content="tuga.io | Filmes e Séries Online">
+<meta name="description" content="Os teus filmes e séries favoritos disponíveis em qualquer lugar, à distância dum clique!">
+<meta name="keywords" content="Filmes, Séries, Animes, tuga.io, Online, Portugal, português, legendado, legendas, filmes online, legendados, filmes online legendados">
+<meta name="author" content="tuga.io">
+<meta property="og:title" content="tuga.io | Os teus Filmes e Séries em HD">
+<meta property="og:site_name" content="tuga.io">
+<meta property="og:url" content="http://tuga.io/">
+<meta property="og:description" content="Aqui poderás ver todos os filmes e séries em HD.">
+<meta property="og:image" content="http://tuga.io/images/meta.png">
+<meta property="twitter:title" content="tuga.io | Os teus Filmes e Séries em HD">
+<meta property="twitter:description" content="Aqui poderás ver todos os filmes e séries em HD.">
+<meta property="twitter:site" content="@tugaio">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:image" content="http://tuga.io/images/meta.png">
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"c4916f4cf4d99a38e1a4b38d000eac78",petok:"8386ee286383fc1a4037e11caf659505e3a88675-1439240672-1800",betok:"9e87c51f91cd3c4e2fb77a94798716aab883c636-1439240672-120",zone:"tuga.io",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=d134393e0a/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Roboto:900,100,500" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="menu">
+<div class="center">
+<div class="logo">
+<a href="/">tuga<span class="yellow">.io</span> <span class="beta">beta</span></a>
+</div>
+<div class="menu">
+<div class="left">
+<ul class="big">
+<li><a href="/filmes" class="item"><i class="fa fa-film"></i> Filmes</a></li>
+<li><a href="/series" class="item"><i class="fa fa-desktop"></i> Séries</a></li>
+<li><a href="/pedidos" class="item"><i class="fa fa-question-circle"></i> Pedidos</a></li>
+</ul>
+<ul class="small">
+<li><a href="#" class="item"><i class="fa fa-film"></i></a></li>
+<li><a href="#" class="item"><i class="fa fa-desktop"></i></a></li>
+<li><a href="#" class="item"><i class="fa fa-question-circle"></i></a></li>
+</ul>
+</div>
+<div class="right">
+<form action="/procurar" method="POST">
+<input name="procurar" type="text" placeholder="procurar por..."/>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="menubar">
+<div class="center">
+<div class="login">
+<div class="left">
+Bem-vindo ao tuga.io </div>
+<div class="right">
+<a href="/entrar" class="logins">Entrar</a> <a href="/registar" class="registar">Registar</a>
+</div>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div class="center">
+<div class="row">
+<div class="title-info">
+<h1>Filmes</h1>
+<form action="/filmes" method="get" onChange="submit();">
+<select name="orderby">
+<option disabled>Ordenar por</option>
+<option value="2" selected>Últimos</option>
+<option value="1">IMDB Rating</option>
+<option value="3">Ano</option>
+</select>
+<select name="from">
+<option disabled>Desde</option>
+<option value="1" selected>Mais Recentes</option>
+<option value="2">Mais Antigos</option>
+</select>
+<select name="genre">
+<option disabled>Genero</option>
+<option value="0" selected>Todos</option>
+<option value="1">Comédia</option>
+<option value="2">Crime</option>
+<option value="3">Suspense</option>
+<option value="4">Aventura</option>
+<option value="5">Familia</option>
+<option value="6">Fantasia</option>
+<option value="7">Acção</option>
+<option value="8">Terror</option>
+<option value="9">Romance</option>
+<option value="10">Biografia</option>
+<option value="11">Historia</option>
+<option value="12">Mistério</option>
+<option value="13">Drama</option>
+<option value="14">Sci-Fi</option>
+<option value="15">Documentário</option>
+<option value="16">Guerra</option>
+<option value="17">Desporto</option>
+<option value="18">Musical</option>
+<option value="19">Animação</option>
+</select>
+</form>
+</div>
+<div class="list">
+<ul>
+<li>
+<a href="/filme/tt3397918">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3397918.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harbinger Down</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: N/A</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt3816458">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3816458.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Dead Rising: Watchtower</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 5.4</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2310332">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2310332.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hobbit: The Battle of the Five Armies</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 7.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1170358">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1170358.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hobbit: The Desolation of Smaug</div>
+<div class="infos">
+<div class="year">2013</div>
+<div class="imdb">IMDB: 8.0</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0903624">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0903624.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hobbit: An Unexpected Journey</div>
+<div class="infos">
+<div class="year">2012</div>
+<div class="imdb">IMDB: 8.0</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0167260">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0167260.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Lord of the Rings: The Return of the King</div>
+<div class="infos">
+<div class="year">2003</div>
+<div class="imdb">IMDB: 8.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0167261">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0167261.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Lord of the Rings: The Two Towers</div>
+<div class="infos">
+<div class="year">2002</div>
+<div class="imdb">IMDB: 8.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0120737">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0120737.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Lord of the Rings: The Fellowship of the Ring</div>
+<div class="infos">
+<div class="year">2001</div>
+<div class="imdb">IMDB: 8.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1951265">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1951265.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hunger Games: Mockingjay - Part 1</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 6.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1951264">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1951264.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hunger Games: Catching Fire</div>
+<div class="infos">
+<div class="year">2013</div>
+<div class="imdb">IMDB: 7.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1392170">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1392170.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Hunger Games</div>
+<div class="infos">
+<div class="year">2012</div>
+<div class="imdb">IMDB: 7.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt3079380">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3079380.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Spy</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 7.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2322441">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2322441.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Fifty Shades of Grey</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 4.2</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2848292">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2848292.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pitch Perfect 2</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 7.0</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1981677">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1981677.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pitch Perfect</div>
+<div class="infos">
+<div class="year">2012</div>
+<div class="imdb">IMDB: 7.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1298650">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1298650.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pirates of the Caribbean: On Stranger Tides</div>
+<div class="infos">
+<div class="year">2011</div>
+<div class="imdb">IMDB: 6.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0449088">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0449088.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pirates of the Caribbean: At World's End</div>
+<div class="infos">
+<div class="year">2007</div>
+<div class="imdb">IMDB: 7.1</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0383574">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0383574.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pirates of the Caribbean: Dead Man's Chest</div>
+<div class="infos">
+<div class="year">2006</div>
+<div class="imdb">IMDB: 7.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0325980">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0325980.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Pirates of the Caribbean: The Curse of the Black Pearl</div>
+<div class="infos">
+<div class="year">2003</div>
+<div class="imdb">IMDB: 8.1</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1201607">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1201607.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Deathly Hallows: Part 2</div>
+<div class="infos">
+<div class="year">2011</div>
+<div class="imdb">IMDB: 8.1</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0926084">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0926084.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Deathly Hallows: Part 1</div>
+<div class="infos">
+<div class="year">2010</div>
+<div class="imdb">IMDB: 7.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0417741">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0417741.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Half-Blood Prince</div>
+<div class="infos">
+<div class="year">2009</div>
+<div class="imdb">IMDB: 7.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0373889">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0373889.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Order of the Phoenix</div>
+<div class="infos">
+<div class="year">2007</div>
+<div class="imdb">IMDB: 7.4</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0330373">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0330373.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Goblet of Fire</div>
+<div class="infos">
+<div class="year">2005</div>
+<div class="imdb">IMDB: 7.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0304141">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0304141.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Prisoner of Azkaban</div>
+<div class="infos">
+<div class="year">2004</div>
+<div class="imdb">IMDB: 7.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0295297">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0295297.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Chamber of Secrets</div>
+<div class="infos">
+<div class="year">2002</div>
+<div class="imdb">IMDB: 7.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0241527">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0241527.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Harry Potter and the Sorcerer's Stone</div>
+<div class="infos">
+<div class="year">2001</div>
+<div class="imdb">IMDB: 7.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2558318">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2558318.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Well</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 5.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2967224">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2967224.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Hot Pursuit</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 4.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2184339">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2184339.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Purge</div>
+<div class="infos">
+<div class="year">2013</div>
+<div class="imdb">IMDB: 5.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2582802">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2582802.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Whiplash</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 8.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt3181822">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3181822.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Boy Next Door</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 4.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2333784">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2333784.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Expendables 3</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 6.2</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1205537">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1205537.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Jack Ryan: Shadow Recruit</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 6.2</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1843866">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1843866.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Captain America: The Winter Soldier</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 7.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0120667">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0120667.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Fantastic Four</div>
+<div class="infos">
+<div class="year">2005</div>
+<div class="imdb">IMDB: 5.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1959490">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1959490.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Noah</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 5.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1790825">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1790825.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Murph: The Protector</div>
+<div class="infos">
+<div class="year">2013</div>
+<div class="imdb">IMDB: 6.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt3713166">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3713166.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Unfriended</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 5.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt2904626">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2904626.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Salting the Battlefield</div>
+<div class="infos">
+<div class="year">2014</div>
+<div class="imdb">IMDB: 6.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt1881002">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1881002.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Maggie</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 5.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/filme/tt0470752">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0470752.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Ex Machina</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 7.8</div>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bar">
+<a href="/filmes/2?orderby=2&from=1&genre=0" class="r">Próxima <i class="fa fa-arrow-right"></i></a> </div>
+</div>
+</div>
+</div>
+<footer>
+<div class="center centext">
+<div class="footer-menu">
+<ul>
+<li><a href="/filmes">Filmes</a></li>
+<li><a href="/series">Séries</a></li>
+<li><a href="/pedidos">Pedidos</a></li>
+</ul>
+</div>
+<div class="copyrights"><a href="/termos-e-condicoes">Termos do Serviço</a> | © 2015 - tuga.io | <a href="politica-de-privacidade">Política de Privacidade</a></div>
+</div>
+</footer>
+<script type="text/rocketscript">
+    onload = function google() {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-64769685-1', 'auto');
+        ga('send', 'pageview');
+
+        setTimeout(google, 5 * 60 * 1000);
+    }
+</script>
+
+<script type="text/javascript" data-cfasync='false'>
+    (function (document, window) {
+
+        var c = document.createElement("script");
+        c.type = "text/javascript";
+        c.async = !0;
+        c.src = "//onlinesupaads.com/scripts/4b2da0ee146f02e74fb89bb72f866e1e.min.js?20150718=" + Math.floor((new Date).getTime());
+        var a = !1;
+        try {
+            a = parent.document.getElementsByTagName("script")[0] || document.getElementsByTagName("script")[0];
+        } catch (e) {
+            a = !1;
+        }
+        a || ( a = document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]);
+        a.parentNode.insertBefore(c, a);
+    })(document, window);
+</script>
+
+
+</body>
+</html>

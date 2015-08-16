@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Kodi">
+    <serverData>
+      <paths name="Kodi">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/pt.psar.tugaio" local="$PROJECT_DIR$/tugaio" web="/pt.psar.tugaio" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

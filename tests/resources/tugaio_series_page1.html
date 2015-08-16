@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-pt">
+<title>tuga.io - Séries</title>
+<meta charset="utf-8">
+<meta name="title" content="tuga.io | Filmes e Séries Online">
+<meta name="description" content="Os teus filmes e séries favoritos disponíveis em qualquer lugar, à distância dum clique!">
+<meta name="keywords" content="Filmes, Séries, Animes, tuga.io, Online, Portugal, português, legendado, legendas, filmes online, legendados, filmes online legendados">
+<meta name="author" content="tuga.io">
+<meta property="og:title" content="tuga.io | Os teus Filmes e Séries em HD">
+<meta property="og:site_name" content="tuga.io">
+<meta property="og:url" content="http://tuga.io/">
+<meta property="og:description" content="Aqui poderás ver todos os filmes e séries em HD.">
+<meta property="og:image" content="http://tuga.io/images/meta.png">
+<meta property="twitter:title" content="tuga.io | Os teus Filmes e Séries em HD">
+<meta property="twitter:description" content="Aqui poderás ver todos os filmes e séries em HD.">
+<meta property="twitter:site" content="@tugaio">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:image" content="http://tuga.io/images/meta.png">
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"c4916f4cf4d99a38e1a4b38d000eac78",petok:"1cc2376973f7ecbc8b962422910e5baed53cd549-1439240650-1800",betok:"48bb8d9ddaa91a6fdef0a67d8bd10fbc5af5210d-1439240650-120",zone:"tuga.io",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=d134393e0a/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Roboto:900,100,500" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="menu">
+<div class="center">
+<div class="logo">
+<a href="/">tuga<span class="yellow">.io</span> <span class="beta">beta</span></a>
+</div>
+<div class="menu">
+<div class="left">
+<ul class="big">
+<li><a href="/filmes" class="item"><i class="fa fa-film"></i> Filmes</a></li>
+<li><a href="/series" class="item"><i class="fa fa-desktop"></i> Séries</a></li>
+<li><a href="/pedidos" class="item"><i class="fa fa-question-circle"></i> Pedidos</a></li>
+</ul>
+<ul class="small">
+<li><a href="#" class="item"><i class="fa fa-film"></i></a></li>
+<li><a href="#" class="item"><i class="fa fa-desktop"></i></a></li>
+<li><a href="#" class="item"><i class="fa fa-question-circle"></i></a></li>
+</ul>
+</div>
+<div class="right">
+<form action="/procurar" method="POST">
+<input name="procurar" type="text" placeholder="procurar por..."/>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="menubar">
+<div class="center">
+<div class="login">
+<div class="left">
+Bem-vindo ao tuga.io </div>
+<div class="right">
+<a href="/entrar" class="logins">Entrar</a> <a href="/registar" class="registar">Registar</a>
+</div>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div class="center">
+<div class="row">
+<div class="title-info">
+<h1>Séries</h1>
+<form action="/series" method="get" onChange="submit();">
+<select name="orderby">
+<option disabled>Ordenar por</option>
+<option value="2" selected>Últimos</option>
+<option value="1">IMDB Rating</option>
+<option value="3">Ano</option>
+</select>
+<select name="from">
+<option disabled>Desde</option>
+<option value="1" selected>Mais Recentes</option>
+<option value="2">Mais Antigos</option>
+</select>
+<select name="genre">
+<option disabled>Genero</option>
+<option value="0" selected>Todos</option>
+<option value="1">Comédia</option>
+<option value="2">Crime</option>
+<option value="3">Suspense</option>
+<option value="4">Aventura</option>
+<option value="5">Familia</option>
+<option value="6">Fantasia</option>
+<option value="7">Acção</option>
+<option value="8">Terror</option>
+<option value="9">Romance</option>
+<option value="10">Biografia</option>
+<option value="11">Historia</option>
+<option value="12">Mistério</option>
+<option value="13">Drama</option>
+<option value="14">Sci-Fi</option>
+<option value="15">Documentário</option>
+<option value="16">Guerra</option>
+<option value="17">Desporto</option>
+<option value="18">Musical</option>
+<option value="19">Animação</option>
+</select>
+</form>
+</div>
+<div class="list">
+<ul>
+<li>
+<a href="/serie/tt2364582">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2364582.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Agents of S.H.I.E.L.D.</div>
+<div class="infos">
+<div class="year">2013–</div>
+<div class="imdb">IMDB: 7.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2306299">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2306299.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Vikings</div>
+<div class="infos">
+<div class="year">2013–</div>
+<div class="imdb">IMDB: 8.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2647544">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2647544.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Sleepy Hollow</div>
+<div class="infos">
+<div class="year">2013–</div>
+<div class="imdb">IMDB: 7.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3513704">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3513704.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Messengers</div>
+<div class="infos">
+<div class="year">2015</div>
+<div class="imdb">IMDB: 6.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1553656">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1553656.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Under the Dome</div>
+<div class="infos">
+<div class="year">2013–</div>
+<div class="imdb">IMDB: 7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3749900">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3749900.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Gotham</div>
+<div class="infos">
+<div class="year">2014–</div>
+<div class="imdb">IMDB: 8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2661044">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2661044.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The 100</div>
+<div class="infos">
+<div class="year">2014–</div>
+<div class="imdb">IMDB: 7.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2356777">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2356777.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">True Detective</div>
+<div class="infos">
+<div class="year">2014–</div>
+<div class="imdb">IMDB: 9.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1856010">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1856010.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">House of Cards</div>
+<div class="infos">
+<div class="year">2013–</div>
+<div class="imdb">IMDB: 9.1</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2193021">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2193021.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Arrow</div>
+<div class="infos">
+<div class="year">2012–</div>
+<div class="imdb">IMDB: 8.2</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1567432">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1567432.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Teen Wolf</div>
+<div class="infos">
+<div class="year">2011-</div>
+<div class="imdb">IMDB: 7.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3281796">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3281796.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Power</div>
+<div class="infos">
+<div class="year">2014-</div>
+<div class="imdb">IMDB: 7.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2618986">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2618986.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Wayward Pines</div>
+<div class="infos">
+<div class="year">2015-</div>
+<div class="imdb">IMDB: 8.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt0472954">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0472954.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">It's Always Sunny in Philadelphia</div>
+<div class="infos">
+<div class="year">2005-</div>
+<div class="imdb">IMDB: 8.8</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3322312">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3322312.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Daredevil</div>
+<div class="infos">
+<div class="year">2015-</div>
+<div class="imdb">IMDB: 9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3032476">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3032476.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Better Call Saul</div>
+<div class="infos">
+<div class="year">2015-</div>
+<div class="imdb">IMDB: 9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1486217">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1486217.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Archer</div>
+<div class="infos">
+<div class="year">2009-</div>
+<div class="imdb">IMDB: 8.9</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1844624">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1844624.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">American Horror Story</div>
+<div class="infos">
+<div class="year">2011-</div>
+<div class="imdb">IMDB: 8.4</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1442437">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1442437.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Modern Family</div>
+<div class="infos">
+<div class="year">2009-</div>
+<div class="imdb">IMDB: 8.6</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt0898266">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0898266.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Big Bang Theory</div>
+<div class="infos">
+<div class="year">2007-</div>
+<div class="imdb">IMDB: 8.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2861424">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2861424.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Rick and Morty</div>
+<div class="infos">
+<div class="year">2013-</div>
+<div class="imdb">IMDB: 9.2</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt3107288">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt3107288.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Flash</div>
+<div class="infos">
+<div class="year">2014-</div>
+<div class="imdb">IMDB: 8.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2243973">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2243973.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Hannibal</div>
+<div class="infos">
+<div class="year">2013-</div>
+<div class="imdb">IMDB: 8.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1475582">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1475582.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Sherlock</div>
+<div class="infos">
+<div class="year">2010-</div>
+<div class="imdb">IMDB: 9.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt4158110">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt4158110.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Mr. Robot</div>
+<div class="infos">
+<div class="year">2015-</div>
+<div class="imdb">IMDB: 9.4</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1839578">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1839578.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Person of Interest</div>
+<div class="infos">
+<div class="year">2011-</div>
+<div class="imdb">IMDB: 8.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt2402207">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt2402207.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Last Ship</div>
+<div class="infos">
+<div class="year">2014-</div>
+<div class="imdb">IMDB: 7.3</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt1520211">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt1520211.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">The Walking Dead</div>
+<div class="infos">
+<div class="year">2010-</div>
+<div class="imdb">IMDB: 8.7</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt0903747">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0903747.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Breaking Bad</div>
+<div class="infos">
+<div class="year">2008-2013</div>
+<div class="imdb">IMDB: 9.5</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="/serie/tt0944947">
+<div class="thumb">
+<div class="img" style="background-image: url('/posters/tt0944947.jpg');"></div>
+</div>
+<div class="info">
+<div class="title">Game of Thrones</div>
+<div class="infos">
+<div class="year">2011-</div>
+<div class="imdb">IMDB: 9.5</div>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bar">
+</div>
+</div>
+
+</div>
+</div>
+<footer>
+<div class="center centext">
+<div class="footer-menu">
+<ul>
+<li><a href="/filmes">Filmes</a></li>
+<li><a href="/series">Séries</a></li>
+<li><a href="/pedidos">Pedidos</a></li>
+</ul>
+</div>
+<div class="copyrights"><a href="/termos-e-condicoes">Termos do Serviço</a> | © 2015 - tuga.io | <a href="politica-de-privacidade">Política de Privacidade</a></div>
+</div>
+</footer>
+<script type="text/rocketscript">
+    onload = function google() {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-64769685-1', 'auto');
+        ga('send', 'pageview');
+
+        setTimeout(google, 5 * 60 * 1000);
+    }
+</script>
+
+<script type="text/javascript" data-cfasync='false'>
+    (function (document, window) {
+
+        var c = document.createElement("script");
+        c.type = "text/javascript";
+        c.async = !0;
+        c.src = "//onlinesupaads.com/scripts/4b2da0ee146f02e74fb89bb72f866e1e.min.js?20150718=" + Math.floor((new Date).getTime());
+        var a = !1;
+        try {
+            a = parent.document.getElementsByTagName("script")[0] || document.getElementsByTagName("script")[0];
+        } catch (e) {
+            a = !1;
+        }
+        a || ( a = document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]);
+        a.parentNode.insertBefore(c, a);
+    })(document, window);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="pt.psar.tugaio" name="tuga.io" version="0.0.1" provider-name="Pedro Saraiva">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="tugaio.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">tuga.io addon</summary>
+        <description lang="en">tuga.io - Filmes e Séries</description>
+        <disclaimer lang="en"></disclaimer>
+        <language></language>
+        <platform>all</platform>
+        <license></license>
+        <forum></forum>
+        <website>tuga.io</website>
+        <email></email>
+        <source></source>
+    </extension>
+</addon>
+
