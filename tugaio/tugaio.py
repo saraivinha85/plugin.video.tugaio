@@ -62,14 +62,14 @@ def create_title(raw_title):
     return {"url": url, "thumb": thumb, "name": name, "year": year, "imdb": imdb}
 
 
-def get_movie_titles(page=1, order=0, latest=1, genre=0):
+def get_movie_titles(page=1, order=2, latest=1, genre=0):
     html = create_request(TUGA_IO_URL +
                           TUGA_IO_MOVIES.format(page=page, order=order, latest=latest, genre=genre))
 
     return find_titles(html, 'filme')
 
 
-def get_tv_titles(page=1, order=0, latest=1, genre=0):
+def get_tv_titles(page=1, order=2, latest=1, genre=0):
     html = create_request(TUGA_IO_URL +
                           TUGA_IO_SERIES.format(page=page, order=order, latest=latest, genre=genre))
 
@@ -86,7 +86,7 @@ def get_tv_season_titles(url, season):
     return find_tv_titles(html, season)
 
 
-def get_kids_titles(page=1, order=0, latest=1, genre=0):
+def get_kids_titles(page=1, order=2, latest=1, genre=0):
     html = create_request(TUGA_KIDS_URL +
                           TUGA_IO_MOVIES.format(page=page, order=order, latest=latest, genre=genre))
 
@@ -112,22 +112,11 @@ def build_url(query):
     return base_url + '?' + urllib.urlencode(query)
 
 
-id_addon = xbmcaddon.Addon().getAddonInfo("id")
-addon = xbmcaddon.Addon(id_addon)
-addon_folder = addon.getAddonInfo('path')
-getSetting = xbmcaddon.Addon().getSetting
-images_folder = os.path.join(addon_folder, 'resources', 'media')
-fanart = os.path.join(addon_folder, 'fundo.png')
-base_url = sys.argv[0]
-addon_handle = int(sys.argv[1])
-args = urlparse.parse_qs(sys.argv[2][1:])
-xbmcplugin.setContent(addon_handle, 'movies')
-
-
 def create_root_menu():
     movies_folder = xbmcgui.ListItem("Filmes", iconImage=None, thumbnailImage=None)
     series_folder = xbmcgui.ListItem("Series", iconImage=None, thumbnailImage=None)
     kids_folder = xbmcgui.ListItem("Infantil", iconImage=None, thumbnailImage=None)
+    settings_folder = xbmcgui.ListItem("Definicoes", iconImage=None, thumbnailImage=None)
 
     xbmcplugin.addDirectoryItem(handle=addon_handle,
                                 url=build_url({"action": "list", "folder": "movies", "page": "1"}),
@@ -138,7 +127,10 @@ def create_root_menu():
     xbmcplugin.addDirectoryItem(handle=addon_handle,
                                 url=build_url({"action": "list", "folder": "kids", "page": "1"}),
                                 listitem=kids_folder, isFolder=True)
-    xbmc.executebuiltin("Container.SetViewMode(50)")
+    xbmcplugin.addDirectoryItem(handle=addon_handle,
+                                url=build_url({"action": "settings"}),
+                                listitem=settings_folder, isFolder=True)
+    xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("menuView"))
     xbmcplugin.endOfDirectory(addon_handle)
 
 
@@ -154,10 +146,12 @@ def create_titles_menu():
     is_folder = False
     if folder == "movies":
         titles_html = get_movie_titles(page=page)
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("moviesView"))
     elif folder == "series":
         titles_html = get_tv_titles(page=page)
         action = "seasons"
         is_playable = 'false'
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("seriesView"))
         is_folder = True
     elif folder == "kids":
         titles_html = get_kids_titles(page=page)
@@ -172,6 +166,7 @@ def create_titles_menu():
         url = build_url(title)
         title_item = xbmcgui.ListItem(title['name'], iconImage=tugaio_base_url + title['thumb'],
                                       thumbnailImage=tugaio_base_url + title['thumb'])
+        title_item.setInfo('Video', {'Year': title['year'], 'Rating': title['imdb'], })
         title_item.setProperty('IsPlayable', is_playable)
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=title_item, isFolder=is_folder)
 
@@ -181,7 +176,6 @@ def create_titles_menu():
                                     url=build_url({"action": "list", "folder": folder, "page": str(page + 1)}),
                                     listitem=next_folder, isFolder=True)
 
-    xbmc.executebuiltin("Container.SetViewMode(501)")
     xbmcplugin.endOfDirectory(addon_handle)
 
 
@@ -195,7 +189,8 @@ def create_seasons_menu():
                                     url=build_url(
                                         {"url": url, "action": "list_season", "folder": season.text, "page": "1"}),
                                     listitem=season_item, isFolder=True)
-    xbmc.executebuiltin("Container.SetViewMode(50)")
+
+    xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("menuView"))
     xbmcplugin.endOfDirectory(addon_handle)
 
 
@@ -215,7 +210,7 @@ def create_episodes_menu():
         title_item.setProperty('IsPlayable', "true")
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=title_item)
 
-    xbmc.executebuiltin("Container.SetViewMode(501)")
+    xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("episodesView"))
     xbmcplugin.endOfDirectory(addon_handle)
 
 
@@ -232,8 +227,24 @@ def play_title():
     xbmcplugin.setResolvedUrl(handle=addon_handle, succeeded=True, listitem=play_item)
 
 
+def show_settings():
+     xbmc.executebuiltin("Addon.OpenSettings(%s)" % id_addon)
+
+
 def get_action():
     return args.get('action', None)[0]
+
+
+id_addon = xbmcaddon.Addon().getAddonInfo("id")
+addon = xbmcaddon.Addon(id_addon)
+addon_folder = addon.getAddonInfo('path')
+getSetting = xbmcaddon.Addon().getSetting
+images_folder = os.path.join(addon_folder, 'resources', 'media')
+fanart = os.path.join(addon_folder, 'fundo.png')
+base_url = sys.argv[0]
+addon_handle = int(sys.argv[1])
+args = urlparse.parse_qs(sys.argv[2][1:])
+xbmcplugin.setContent(addon_handle, 'movies')
 
 
 if len(args) == 0:
@@ -250,3 +261,6 @@ elif get_action() == "list_season":
 
 elif get_action() == 'play':
     play_title()
+
+elif get_action() == 'settings':
+    show_settings()

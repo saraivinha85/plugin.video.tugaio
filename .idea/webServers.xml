@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="fe9c53a2-b64b-4427-8891-6a9e44cbf630" name="Kodi" url="http://localhost">
-        <fileTransfer mountedRoot="/Applications/Kodi.app/Contents/Resources/Kodi/addons" accessType="MOUNT" />
+        <fileTransfer mountedRoot="$USER_HOME$/Library/Application Support/Kodi/addons" accessType="MOUNT" />
       </webServer>
     </option>
   </component>

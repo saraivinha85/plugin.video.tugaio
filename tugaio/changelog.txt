@@ -1,3 +1,8 @@
+## 0.0.2 - 2015-08-24
+### Added
+- Ratings
+- View mode settings
+
 ## 0.0.1 - 2015-08-16
 ### Added
 - Initial release

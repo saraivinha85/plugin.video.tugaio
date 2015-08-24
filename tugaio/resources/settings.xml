@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="32010">
+        <!--<setting label="32032" type="action" action="RunScript(my.addon.id, downloadreport)"/>-->
+        <setting label="32033" type="text" id="username"/>
+    </category>
+    <category label="Tipos de vista">
+        <setting label="Definições de vista:" type="lsep"/>
+        <setting id="menuView" type="number" label="Vista de Menu" default="50"/>
+        <setting id="moviesView" type="number" label="Vista de Filmes" default="500"/>
+        <setting id="seriesView" type="number" label="Vista de Séries" default="500"/>
+        <setting id="episodesView" type="number" label="Vista de Episódios" default="500"/>
+        <setting id="lockViews" type="bool" label="Bloquear vistas" default="false"/>
+    </category>
+</settings>

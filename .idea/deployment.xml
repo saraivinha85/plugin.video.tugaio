@@ -5,7 +5,7 @@
       <paths name="Kodi">
         <serverdata>
           <mappings>
-            <mapping deploy="/pt.psar.tugaio" local="$PROJECT_DIR$/tugaio" web="/pt.psar.tugaio" />
+            <mapping deploy="/tugaio" local="$PROJECT_DIR$/tugaio" web="/tugaio" />
           </mappings>
         </serverdata>
       </paths>
