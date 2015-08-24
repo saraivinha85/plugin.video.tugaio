@@ -144,14 +144,14 @@ def create_titles_menu():
     action = 'play'
     is_playable = 'true'
     is_folder = False
+    view = "moviesView"
     if folder == "movies":
         titles_html = get_movie_titles(page=page)
-        xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("moviesView"))
     elif folder == "series":
         titles_html = get_tv_titles(page=page)
         action = "seasons"
         is_playable = 'false'
-        xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("seriesView"))
+        view = "seriesView"
         is_folder = True
     elif folder == "kids":
         titles_html = get_kids_titles(page=page)
@@ -176,6 +176,7 @@ def create_titles_menu():
                                     url=build_url({"action": "list", "folder": folder, "page": str(page + 1)}),
                                     listitem=next_folder, isFolder=True)
 
+    xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting(view))
     xbmcplugin.endOfDirectory(addon_handle)
 
 
@@ -228,7 +229,7 @@ def play_title():
 
 
 def show_settings():
-     xbmc.executebuiltin("Addon.OpenSettings(%s)" % id_addon)
+    xbmc.executebuiltin("Addon.OpenSettings(%s)" % id_addon)
 
 
 def get_action():
@@ -245,7 +246,6 @@ base_url = sys.argv[0]
 addon_handle = int(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])
 xbmcplugin.setContent(addon_handle, 'movies')
-
 
 if len(args) == 0:
     create_root_menu()

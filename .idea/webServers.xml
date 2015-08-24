@@ -5,6 +5,13 @@
       <webServer id="fe9c53a2-b64b-4427-8891-6a9e44cbf630" name="Kodi" url="http://localhost">
         <fileTransfer mountedRoot="$USER_HOME$/Library/Application Support/Kodi/addons" accessType="MOUNT" />
       </webServer>
+      <webServer id="905cf957-4c9d-412d-9327-2d1fa59a014b" name="openelec minix" url="http://192.168.2.36">
+        <fileTransfer host="192.168.2.36" port="22" rootFolder="/storage" accessType="SFTP" password="dfc5dfdadfcfdfc4dfcfdfc6dfcfdfc9" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
