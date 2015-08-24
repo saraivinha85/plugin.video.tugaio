@@ -6,10 +6,9 @@
     </category>
     <category label="Tipos de vista">
         <setting label="Definições de vista:" type="lsep"/>
-        <setting id="menuView" type="number" label="Vista de Menu" default="50"/>
-        <setting id="moviesView" type="number" label="Vista de Filmes" default="500"/>
-        <setting id="seriesView" type="number" label="Vista de Séries" default="500"/>
-        <setting id="episodesView" type="number" label="Vista de Episódios" default="500"/>
-        <setting id="lockViews" type="bool" label="Bloquear vistas" default="false"/>
+        <setting id="menuView" type="number" label="Vista de Menu" default="51"/>
+        <setting id="moviesView" type="number" label="Vista de Filmes" default="59"/>
+        <setting id="seriesView" type="number" label="Vista de Séries" default="59"/>
+        <setting id="episodesView" type="number" label="Vista de Episódios" default="51"/>
     </category>
 </settings>
