@@ -178,7 +178,6 @@ def cf_generate_new_cookie(url, user_agent, cookie_file):
 
 def create_request(url, data=None):
     try:
-        net._cj.clear()
         return net.http_GET(url).content
 
     except:
@@ -421,9 +420,11 @@ addon_handle = int(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])
 xbmcplugin.setContent(addon_handle, 'movies')
 
-net = Net()
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0'
 cf_cookie_file = os.path.join(os.path.dirname(__file__), 'tugaio.cache')
+
+net = Net()
+net.set_cookies(cf_cookie_file)
 net.set_user_agent(user_agent)
 
 
