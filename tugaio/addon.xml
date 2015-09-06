@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="pt.psar.tugaio" name="tuga.io" version="0.0.1" provider-name="Pedro Saraiva">
+<addon id="pt.psar.tugaio" name="tuga.io" version="0.0.3" provider-name="Pedro Saraiva">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>

@@ -345,10 +345,11 @@ def create_titles_menu():
 
 def build_url_with_cookie(base_url, relative_path=''):
     tuga_io_cookie_key = '.tuga.io'
+    cf_clearance_key = "cf_clearance"
 
-    if tuga_io_cookie_key in net._cj._cookies:
+    if tuga_io_cookie_key in net._cj._cookies and cf_clearance_key in net._cj._cookies[tuga_io_cookie_key]['/']:
         return base_url + relative_path + '|User-Agent=' + user_agent + '&Cookie=cf_clearance=' +\
-           net._cj._cookies[tuga_io_cookie_key]['/']["cf_clearance"].value
+           net._cj._cookies[tuga_io_cookie_key]['/'][cf_clearance_key].value
 
     return base_url + relative_path
 
