@@ -86,7 +86,7 @@ def lxml_trace(data, html=True, **kwargs):
         print("%s, %4s, %s" % (event, element.tag, element.text))
 
 class AnnouncingParser(HTMLParser):
-    """Announces HTMLParser parse events, without doing anything else."""
+    """Announces HTMLParser.py parse events, without doing anything else."""
 
     def _p(self, s):
         print(s)
@@ -119,9 +119,9 @@ class AnnouncingParser(HTMLParser):
         self._p("%s PI" % data)
 
 def htmlparser_trace(data):
-    """Print out the HTMLParser events that occur during parsing.
+    """Print out the HTMLParser.py events that occur during parsing.
 
-    This lets you see how HTMLParser parses a document when no
+    This lets you see how HTMLParser.py parses a document when no
     Beautiful Soup code is running.
     """
     parser = AnnouncingParser()

@@ -307,7 +307,7 @@ class ParserRejectedMarkup(Exception):
 # Builders are registered in reverse order of priority, so that custom
 # builder registrations will take precedence. In general, we want lxml
 # to take precedence over html5lib, because it's faster. And we only
-# want to use HTMLParser as a last result.
+# want to use HTMLParser.py as a last result.
 from . import _htmlparser
 register_treebuilders_from(_htmlparser)
 try:

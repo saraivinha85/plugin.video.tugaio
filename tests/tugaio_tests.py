@@ -8,7 +8,7 @@ class TugaIOTests(unittest.TestCase):
 
     #@patch(create_request)
     def test_movies(self):
-        movies = tugaio.get_movie_titles(page=2)
+        movies = tugaio.get_movie_titles()
         print "-----------------------"
         print "Movies:"
         print "-----------------------"

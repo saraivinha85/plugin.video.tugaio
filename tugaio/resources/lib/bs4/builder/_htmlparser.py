@@ -17,12 +17,12 @@ except ImportError, e:
 import sys
 import warnings
 
-# Starting in Python 3.2, the HTMLParser constructor takes a 'strict'
+# Starting in Python 3.2, the HTMLParser.py constructor takes a 'strict'
 # argument, which we'd like to set to False. Unfortunately,
 # http://bugs.python.org/issue13273 makes strict=True a better bet
 # before Python 3.2.3.
 #
-# At the end of this file, we monkeypatch HTMLParser so that
+# At the end of this file, we monkeypatch HTMLParser.py so that
 # strict=True works well on Python 3.2.2.
 major, minor, release = sys.version_info[:3]
 CONSTRUCTOR_TAKES_STRICT = major == 3 and minor == 2 and release >= 3
@@ -68,7 +68,7 @@ class BeautifulSoupHTMLParser(HTMLParser):
         self.soup.handle_data(data)
 
     def handle_charref(self, name):
-        # XXX workaround for a bug in HTMLParser. Remove this once
+        # XXX workaround for a bug in HTMLParser.py. Remove this once
         # it's fixed in all supported versions.
         # http://bugs.python.org/issue13633
         if name.startswith('x'):
@@ -164,10 +164,10 @@ class HTMLParserTreeBuilder(HTMLTreeBuilder):
             parser.feed(markup)
         except HTMLParseError, e:
             warnings.warn(RuntimeWarning(
-                "Python's built-in HTMLParser cannot parse the given document. This is not a bug in Beautiful Soup. The best solution is to install an external parser (lxml or html5lib), and use Beautiful Soup with that parser. See http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser for help."))
+                "Python's built-in HTMLParser.py cannot parse the given document. This is not a bug in Beautiful Soup. The best solution is to install an external parser (lxml or html5lib), and use Beautiful Soup with that parser. See http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser for help."))
             raise e
 
-# Patch 3.2 versions of HTMLParser earlier than 3.2.3 to use some
+# Patch 3.2 versions of HTMLParser.py earlier than 3.2.3 to use some
 # 3.2.3 code. This ensures they don't treat markup like <p></p> as a
 # string.
 #
