@@ -17,6 +17,7 @@ import xbmc
 import xbmcgui
 import xbmcplugin
 import cookielib
+import re
 import xbmcaddon
 
 TUGA_IO_URL = 'http://tuga.io'
@@ -204,11 +205,9 @@ def create_titles(raw_titles):
 def resolve_video_and_subtitles_url(base_url, path):
     html = create_request(base_url + path)
     query = BeautifulSoup(html, "html.parser")
-    video_url = "http://" + urllib.quote(urllib.unquote(
-        query("script", text=re.compile("file:"))[0].text.strip().partition("'http://")[-1].partition("'")[0]))
-    subtitles_url = base_url + \
-                    query("script", text=re.compile("file:"))[0].text.strip().split("file:")[3].partition('"')[
-                        -1].partition('"')[0]
+
+    video_url = re.findall(r'(https?://\S+)', query("script", text=re.compile("file:"))[0].text)[0]
+    subtitles_url = base_url + re.findall(r'(/\S+\.srt)', query("script", text=re.compile("file:"))[0].text)[0]
     return {"video": video_url, "subtitles": subtitles_url}
 
 

@@ -13,6 +13,9 @@ class TugaIOTests(unittest.TestCase):
         print "Movies:"
         print "-----------------------"
         movies = tugaio.create_titles(movies)
+
+        tugaio.resolve_video_and_subtitles_url(tugaio.TUGA_IO_URL, movies[0]['url'])
+
         print movies
         print "-----------------------"
 
