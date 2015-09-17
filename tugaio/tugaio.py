@@ -206,7 +206,7 @@ def resolve_video_and_subtitles_url(base_url, path):
     html = create_request(base_url + path)
     query = BeautifulSoup(html, "html.parser")
 
-    video_url = re.findall(r'(https?://\S+\.mp4)', query("script", text=re.compile("file:"))[0].text)[0]
+    video_url = re.findall(r'(https?://\S+\.\w{3,4})', query("script", text=re.compile("file:"))[0].text)[0]
     subtitles_url = base_url + re.findall(r'(/\S+\.srt)', query("script", text=re.compile("file:"))[0].text)[0]
     return {"video": video_url, "subtitles": subtitles_url}
 
