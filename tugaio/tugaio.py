@@ -18,6 +18,7 @@ import xbmcgui
 import xbmcplugin
 import cookielib
 import re
+import time
 import xbmcaddon
 
 TUGA_IO_URL = 'http://tuga.io'
@@ -125,7 +126,7 @@ def cf_decrypt_ddos(url, agent, cookie_file):
             str(base_url), str(cf_challenge_form), str(jschl), str(cf_pass), str(answer))
     print ['query', query]
 
-    xbmc.sleep(wait_time)
+    sleep(wait_time)
 
     opener = urllib2.build_opener(NoRedirection, urllib2.HTTPCookieProcessor(cj))
     opener.addheaders = [('User-Agent', agent)]
@@ -145,6 +146,11 @@ def cf_decrypt_ddos(url, agent, cookie_file):
         return True
 
     return False
+
+
+def sleep(wait_time):
+    #xbmc.sleep(time)
+    time.sleep(wait_time / 1000)
 
 
 def get_domain_from_url(url):
@@ -171,15 +177,16 @@ def is_cookie_expired(url, net):
 def cf_generate_new_cookie(url, user_agent, cookie_file):
     retries = 10
     while retries > 0 and not cf_decrypt_ddos(url, user_agent, cookie_file):
-        xbmc.sleep(2000)
+
+        sleep(1)
         retries -= 1
 
     return retries > 0
 
 
-def create_request(url, data=None):
+def create_request(url, headers={}, data=None):
     try:
-        return net.http_GET(url).content
+        return net.http_GET(url, headers=headers).content
 
     except:
         # Possible Cloudflare DDOS Protection
@@ -190,8 +197,10 @@ def create_request(url, data=None):
         print "cookie_expired"
         cf_generate_new_cookie(url, user_agent, cf_cookie_file)
         net.set_cookies(cf_cookie_file)
-
-        return net.http_GET(url).content
+        net.set_user_agent(user_agent)
+        response = net.http_GET(url, headers=headers)
+        net.save_cookies(cf_cookie_file)
+        return response.content
 
 
 def create_titles(raw_titles):
@@ -203,11 +212,25 @@ def create_titles(raw_titles):
 
 
 def resolve_video_and_subtitles_url(base_url, path):
-    html = create_request(base_url + path)
-    query = BeautifulSoup(html, "html.parser")
+    title_html = create_request(base_url + path)
+    query = BeautifulSoup(title_html, "html.parser")
 
-    video_url = re.findall(r'(https?://\S+\.\w{3,4})', query("script", text=re.compile("file:"))[0].text)[0]
-    subtitles_url = base_url + re.findall(r'(/\S+\.srt)', query("script", text=re.compile("file:"))[0].text)[0]
+    query_data = query("script", {"src": re.compile("php")})
+    php_link = ""
+    if (len(query_data) == 0):
+        php_link = query("script", {"data-rocketsrc": re.compile("php")})[0].attrs["data-rocketsrc"]
+    else:
+        php_link = query_data[0].attrs["src"]
+
+    print(php_link)
+
+    player_data_url = base_url + php_link
+    player_data = create_request(player_data_url, {'Referer': base_url + path})
+
+    video_url = urllib.quote(re.findall(r'(https?://.+\.\w{3,4})', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+
+    subtitles_url = base_url + urllib.quote(re.findall(r'(/.+\.srt)', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+
     return {"video": video_url, "subtitles": subtitles_url}
 
 
