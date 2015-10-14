@@ -216,19 +216,20 @@ def resolve_video_and_subtitles_url(base_url, path):
     query = BeautifulSoup(title_html, "html.parser")
 
     query_data = query("script", {"src": re.compile("php")})
-    php_link = ""
-    if (len(query_data) == 0):
-        php_link = query("script", {"data-rocketsrc": re.compile("php")})[0].attrs["data-rocketsrc"]
-    else:
-        php_link = query_data[0].attrs["src"]
+    # php_link = ""
+    # if (len(query_data) == 0):
+    #     php_link = query("script", {"data-rocketsrc": re.compile("php")})[0].attrs["data-rocketsrc"]
+    # else:
+    php_link = query_data[0].attrs["src"]
 
     print(php_link)
 
-    player_data_url = base_url + php_link
-    player_data = create_request(player_data_url, {'Referer': base_url + path})
+    if base_url not in php_link:
+        php_link = base_url + php_link
+    player_data = create_request(php_link, {'Referer': base_url + path})
 
     video_url = urllib.quote(re.findall(r'(https?://.+\.\w{3,4})', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
-
+    print(video_url)
     subtitles_url = base_url + urllib.quote(re.findall(r'(/.+\.srt)', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
 
     return {"video": video_url, "subtitles": subtitles_url}
