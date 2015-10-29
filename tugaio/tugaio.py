@@ -9,7 +9,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'resources', 'lib'))
 
 from net import Net
 from bs4 import BeautifulSoup
-import re
 import urllib2
 import urllib
 import urlparse
@@ -21,7 +20,7 @@ import re
 import time
 import xbmcaddon
 
-TUGA_IO_URL = 'http://tuga.io'
+TUGA_IO_URL = 'http://tuga.su'
 TUGA_KIDS_URL = 'http://kids.tuga.io'
 TUGA_IO_MOVIES = "/filmes/{page}?orderby={order}&from={latest}&genre={genre}"
 TUGA_IO_SERIES = "/series/{page}?orderby={order}&from={latest}&genre={genre}"
@@ -228,7 +227,7 @@ def resolve_video_and_subtitles_url(base_url, path):
         php_link = base_url + php_link
     player_data = create_request(php_link, {'Referer': base_url + path})
 
-    video_url = urllib.quote(re.findall(r'(https?://.+\.\w{3,4})', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+    video_url = urllib.quote(re.findall(r'"(https?://\S+\.\w{3,4})"', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
     print(video_url)
     subtitles_url = base_url + urllib.quote(re.findall(r'(/.+\.srt)', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
 
