@@ -229,7 +229,7 @@ def resolve_video_and_subtitles_url(base_url, path):
 
     video_url = urllib.quote(re.findall(r'"(https?://\S+\.\w{3,4})"', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
     print(video_url)
-    subtitles_url = base_url + urllib.quote(re.findall(r'(/.+\.srt)', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+    subtitles_url = base_url + urllib.quote(re.findall(r"(/subtitles/\S+\.srt)", player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
 
     return {"video": video_url, "subtitles": subtitles_url}
 
