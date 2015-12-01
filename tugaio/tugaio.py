@@ -227,7 +227,8 @@ def resolve_video_and_subtitles_url(base_url, path):
         php_link = base_url + php_link
     player_data = create_request(php_link, {'Referer': base_url + path})
 
-    video_url = urllib.quote(re.findall(r'"(https?://\S+\.\w{3,4})"', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+    #video_url = urllib.quote(re.findall(r'"(https?://\S+\.\w{3,4})"', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
+    video_url = eval('"' + player_data.split('["')[1].split('"]')[0] + '"')
     print(video_url)
     subtitles_url = base_url + urllib.quote(re.findall(r"(/subtitles/\S+\.srt)", player_data)[0], safe="%/:=&?~#+!$,;'@()*[]")
 
