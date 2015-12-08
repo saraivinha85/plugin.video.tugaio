@@ -1,0 +1,21 @@
+target
+build
+test-output
+gen
+*.log
+
+# Idea
+*.iml
+.idea
+
+# Eclipse
+.settings
+.classpath
+.project
+
+# Netbeans
+nb-configuration.xml
+
+#Temp files
+*~
+.DS_Store
