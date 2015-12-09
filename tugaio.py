@@ -361,7 +361,7 @@ def create_titles_menu():
     if len(titles) == TUGA_IO_PAGE_SIZE:
         next_folder = xbmcgui.ListItem("Proxima pagina", iconImage=None, thumbnailImage=None)
         xbmcplugin.addDirectoryItem(handle=addon_handle,
-                                    url=build_url({"action": "list", "folder": folder, "page": str(page + 1)}),
+                                    url=build_url({"action": "list", "folder": folder, "page": str(page + 1), "order": order}),
                                     listitem=next_folder, isFolder=True)
 
     xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting(view))
