@@ -21,10 +21,11 @@ import time
 import xbmcaddon
 
 TUGA_IO_URL = 'http://tuga.su'
-TUGA_KIDS_URL = 'http://kids.tuga.io'
 TUGA_IO_MOVIES = "/filmes/{page}?orderby={order}&from={latest}&genre={genre}"
 TUGA_IO_SERIES = "/series/{page}?orderby={order}&from={latest}&genre={genre}"
 TUGA_IO_PAGE_SIZE = 42
+TUGA_IO_ORDER_BY_YEAR = 3
+TUGA_IO_ORDER_BY_LAST = 2
 
 
 def cf_evaluate_js_string(string):
@@ -205,8 +206,7 @@ def create_request(url, headers={}, data=None):
 def create_titles(raw_titles):
     titles = []
     for raw_title in raw_titles:
-        title = create_title(raw_title)
-        titles.append(title)
+        titles.append(create_title(raw_title))
     return titles
 
 
@@ -244,13 +244,13 @@ def create_title(raw_title):
     return {"url": url, "thumb": thumb, "name": name, "year": year, "imdb": imdb}
 
 
-def get_movie_titles(page=1, order=2, latest=1, genre=0):
+def get_movie_titles(page=1, order=TUGA_IO_ORDER_BY_LAST, latest=1, genre=0):
     html = create_request(TUGA_IO_URL +
                           TUGA_IO_MOVIES.format(page=page, order=order, latest=latest, genre=genre))
     return find_titles(html, 'filme')
 
 
-def get_tv_titles(page=1, order=2, latest=1, genre=0):
+def get_tv_titles(page=1, order=TUGA_IO_ORDER_BY_LAST, latest=1, genre=0):
     html = create_request(TUGA_IO_URL +
                           TUGA_IO_SERIES.format(page=page, order=order, latest=latest, genre=genre))
     return find_titles(html, 'serie')
@@ -264,12 +264,6 @@ def get_tv_show_seasons(url):
 def get_tv_season_titles(url, season):
     html = create_request(TUGA_IO_URL + url)
     return find_tv_titles(html, season)
-
-
-def get_kids_titles(page=1, order=2, latest=1, genre=0):
-    html = create_request(TUGA_KIDS_URL +
-                          TUGA_IO_MOVIES.format(page=page, order=order, latest=latest, genre=genre))
-    return find_titles(html, 'filme')
 
 
 def find_titles(html, title_type):
@@ -299,59 +293,67 @@ def build_url(query):
 
 
 def create_root_menu():
-    movies_folder = xbmcgui.ListItem("Filmes", iconImage=None, thumbnailImage=None)
-    series_folder = xbmcgui.ListItem("Series", iconImage=None, thumbnailImage=None)
-    kids_folder = xbmcgui.ListItem("Infantil", iconImage=None, thumbnailImage=None)
+    movies_year_folder = xbmcgui.ListItem("Filmes (Ano)", iconImage=None, thumbnailImage=None)
+    movies_last_folder = xbmcgui.ListItem("Filmes (Ultimos)", iconImage=None, thumbnailImage=None)
+    series_year_folder = xbmcgui.ListItem("Series (Ano)", iconImage=None, thumbnailImage=None)
+    series_last_folder = xbmcgui.ListItem("Series (Ultimos)", iconImage=None, thumbnailImage=None)
     settings_folder = xbmcgui.ListItem("Definicoes", iconImage=None, thumbnailImage=None)
 
+    # movies listItems
     xbmcplugin.addDirectoryItem(handle=addon_handle,
-                                url=build_url({"action": "list", "folder": "movies", "page": "1"}),
-                                listitem=movies_folder, isFolder=True)
+                                url=build_url({"action": "list", "folder": "movies", "page": "1", "order": TUGA_IO_ORDER_BY_YEAR}),
+                                listitem=movies_year_folder, isFolder=True)
     xbmcplugin.addDirectoryItem(handle=addon_handle,
-                                url=build_url({"action": "list", "folder": "series", "page": "1"}),
-                                listitem=series_folder, isFolder=True)
+                                url=build_url({"action": "list", "folder": "movies", "page": "1", "order": TUGA_IO_ORDER_BY_LAST}),
+                                listitem=movies_last_folder, isFolder=True)
+
+    # series listItems
     xbmcplugin.addDirectoryItem(handle=addon_handle,
-                                url=build_url({"action": "list", "folder": "kids", "page": "1"}),
-                                listitem=kids_folder, isFolder=True)
+                                url=build_url({"action": "list", "folder": "series", "page": TUGA_IO_ORDER_BY_YEAR}),
+                                listitem=series_year_folder, isFolder=True)
+    xbmcplugin.addDirectoryItem(handle=addon_handle,
+                                url=build_url({"action": "list", "folder": "series", "page": TUGA_IO_ORDER_BY_LAST}),
+                                listitem=series_last_folder, isFolder=True)
+
+    # other listItems
     xbmcplugin.addDirectoryItem(handle=addon_handle,
                                 url=build_url({"action": "settings"}),
                                 listitem=settings_folder, isFolder=True)
+
     xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting("menuView"))
     xbmcplugin.endOfDirectory(addon_handle)
 
 
 def create_titles_menu():
+
+    # extract item args
     page = int(args.get('page', '1')[0])
     folder = args.get('folder', None)[0]
+    order = args.get('order', str(TUGA_IO_ORDER_BY_LAST))[0]
 
-    tugaio_base_url = TUGA_IO_URL
-
-    titles_html = None
-    action = 'play'
-    is_playable = 'true'
-    is_folder = False
-    view = "moviesView"
     if folder == "movies":
-        titles_html = get_movie_titles(page=page)
+        titles_html = get_movie_titles(page=page, order=order)
+        action = 'play'
+        is_playable = 'true'
+        is_folder = False
+        view = "moviesView"
+
     elif folder == "series":
-        titles_html = get_tv_titles(page=page)
+        titles_html = get_tv_titles(page=page, order=order)
         action = "seasons"
         is_playable = 'false'
         view = "seriesView"
         is_folder = True
-    elif folder == "kids":
-        titles_html = get_kids_titles(page=page)
-        tugaio_base_url = TUGA_KIDS_URL
 
     titles = create_titles(titles_html)
 
     for title in titles:
         title['action'] = action
-        title['base_url'] = tugaio_base_url
+        title['base_url'] = TUGA_IO_URL
 
         url = build_url(title)
-        title_item = xbmcgui.ListItem(title['name'], iconImage=build_url_with_cookie(tugaio_base_url, title["thumb"]),
-                                      thumbnailImage=build_url_with_cookie(tugaio_base_url, title["thumb"]))
+        title_item = xbmcgui.ListItem(title['name'], iconImage=build_url_with_cookie(TUGA_IO_URL, title["thumb"]),
+                                      thumbnailImage=build_url_with_cookie(TUGA_IO_URL, title["thumb"]))
         title_item.setInfo('Video', {'Year': title['year'], 'Rating': title['imdb'], })
         title_item.setProperty('IsPlayable', is_playable)
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=title_item, isFolder=is_folder)
@@ -359,7 +361,7 @@ def create_titles_menu():
     if len(titles) == TUGA_IO_PAGE_SIZE:
         next_folder = xbmcgui.ListItem("Proxima pagina", iconImage=None, thumbnailImage=None)
         xbmcplugin.addDirectoryItem(handle=addon_handle,
-                                    url=build_url({"action": "list", "folder": folder, "page": str(page + 1)}),
+                                    url=build_url({"action": "list", "folder": folder, "page": str(page + 1), "order": order}),
                                     listitem=next_folder, isFolder=True)
 
     xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting(view))
